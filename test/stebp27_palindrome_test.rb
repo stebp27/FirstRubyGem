@@ -1,9 +1,6 @@
 require "test_helper"
 
 class Stebp27PalindromeTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Stebp27Palindrome::VERSION
-  end
 
   def test_non_palindrome
 	  refute "apple".palindrome?
@@ -21,8 +18,12 @@ class Stebp27PalindromeTest < Minitest::Test
 	assert "Madam, I'm Adam.".palindrome?
   end
 
-  def test_letters
-	  assert_equal "MadamImAdam", "Madam, I'm Adam.".letters
+  def test_integer_non_palindrome
+	  refute 12345.palindrome?
+  end
+
+  def test_integer_palindrome
+	  assert 12321.palindrome?
   end
 
 end

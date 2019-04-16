@@ -1,19 +1,27 @@
 require "stebp27_palindrome/version"
 
-class String
+module Stebp27Palindrome
 
 
 	def palindrome?
+		if processed_content.empty?
+			false
+		else
 		processed_content == processed_content.reverse
-	end
-
-	def letters
-		self.scan(/[a-z]/i).join.downcase
+		end
 	end
 
 	private
 
 	def processed_content
-		self.letters.downcase
+		self.to_s.scan(/[a-z0-9]/i).join.downcase
 	end
+end
+
+class String
+	include Stebp27Palindrome
+end
+
+class Integer
+	include Stebp27Palindrome
 end
